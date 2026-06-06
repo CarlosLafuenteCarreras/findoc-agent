@@ -1,5 +1,8 @@
 import fitz
+import logging
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
 
 def load_pdf(pdf_path: str | Path) -> list[dict]:
     """
@@ -39,4 +42,5 @@ def load_pdf(pdf_path: str | Path) -> list[dict]:
             })
             
     doc.close()
+    logger.info(f"PDF cargado: {pdf_path.name} — {len(pages)} páginas con texto")
     return pages
