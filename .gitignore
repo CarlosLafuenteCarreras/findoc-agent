@@ -219,3 +219,7 @@ __marimo__/
 
 # ChromaDB
 chroma_db/
+
+# pdfs
+data/financial/*.pdf
+data/regulatory/*.pdf
