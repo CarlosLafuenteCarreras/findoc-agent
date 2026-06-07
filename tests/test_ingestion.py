@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 import logging
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.WARNING)
 
 from src.embeddings.embedder import ingest_financial_folder, ingest_regulatory_folder
 
@@ -43,3 +43,5 @@ for i, doc in enumerate(results_reg, 1):
     print(f"Result {i}:")
     print(f"{doc.page_content}\n From: {doc.metadata.get('source')} of {doc.metadata.get('regulation')},{doc.metadata.get('year')} - Pag. {doc.metadata.get('page')}") 
     print("-" * 40)
+    
+
