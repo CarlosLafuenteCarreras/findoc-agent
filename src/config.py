@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 @dataclass
-class Config:
+class FinDocConfig:
     # Chunking
     CHUNK_SIZE: int = 800
     CHUNK_OVERLAP: int = 100
@@ -23,4 +23,4 @@ class Config:
     DATA_FINANCIAL_DIR: str = "data/financial"
     DATA_REGULATORY_DIR: str = "data/regulatory"
     
-config = Config()
+config = FinDocConfig()
