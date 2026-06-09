@@ -1,0 +1,250 @@
+Colecciones cargadas, chains construidas
+
+============================================================
+EVALUACIÓN COLECCIÓN FINANCIERA
+============================================================
+
+[1] ¿Cuál fue el beneficio neto de BBVA en 2025?
+    Tipo esperado: cifra_concreta
+----------------------------------------
+Respuesta:
+ El beneficio neto de BBVA en 2025 fue de 10.511 millones de euros (Grupo BBVA, 2025, p. 5).
+
+Fuentes:
+  • BBVA_annual_2025_es.pdf
+  • BBVA_pillar3_2021_es.pdf
+  • BBVA_pillar3_2021_es.pdf
+  • BBVA_annual_2025_es.pdf
+  • BBVA_annual_2025_es.pdf
+  • BBVA_annual_2025_es.pdf
+
+[2] ¿Cuál es la tasa de mora de Santander?
+    Tipo esperado: cifra_concreta
+----------------------------------------
+Respuesta:
+ La tasa de morosidad de Grupo Santander a diciembre de 2025 es del 1,08% (página no especificada). La tasa de morosidad de Santander España es del 1,96% a diciembre de 2025 (página no especificada). La tasa de morosidad de Santander Consumer USA Inc. es del 22,08% a diciembre de 2025 (página no especificada). La tasa de morosidad de Santander US es del 2,67% a diciembre de 2025 (página no especificada). La tasa de morosidad de Santander UK no se menciona en el contexto proporcionado. 
+
+Fuentes:
+  • SANTANDER_annual_2025_es.pdf
+  • SANTANDER_annual_2025_es.pdf
+  • SANTANDER_annual_2025_es.pdf
+  • SANTANDER_annual_2025_es.pdf
+  • SANTANDER_annual_2025_es.pdf
+  • BBVA_annual_2025_es.pdf
+
+[3] ¿Cuál fue la ratio CET1 de BBVA?
+    Tipo esperado: cifra_concreta
+----------------------------------------
+Respuesta:
+ La ratio CET1 fully loaded del Grupo BBVA se ha situado en el 12,70 % a cierre de diciembre de 2025 (página no especificada). También se menciona que a cierre de diciembre de 2022, la ratio CET1 fue del 12,61 % (página no especificada) y a cierre de diciembre de 2023, fue del 12,67 % (página no especificada).
+
+Fuentes:
+  • BBVA_pillar3_2025_es.pdf
+  • BBVA_pillar3_2022_es.pdf
+  • BBVA_pillar3_2023_es.pdf
+  • BBVA_annual_2025_es.pdf
+  • BBVA_pillar3_2023_es.pdf
+  • BBVA_pillar3_2025_es.pdf
+
+[4] ¿Cuáles son los principales mercados de Inditex?
+    Tipo esperado: lista
+----------------------------------------
+Respuesta:
+ No encuentro esta información en los documentos proporcionados.
+
+Fuentes:
+  • CAIXA_annual_2025_es.pdf
+  • SANTANDER_annual_2025_es.pdf
+  • SANTANDER_annual_2025_es.pdf
+  • SANTANDER_annual_2025_es.pdf
+  • BBVA_annual_2025_es.pdf
+  • SANTANDER_annual_2025_es.pdf
+
+[5] ¿Cual es el presidente de españa?
+    Tipo esperado: nombre
+----------------------------------------
+Respuesta:
+ No encuentro esta información en los documentos proporcionados.
+
+Fuentes:
+  • CAIXA_annual_2025_es.pdf
+  • CAIXA_annual_2025_es.pdf
+  • CAIXA_annual_2025_es.pdf
+  • CAIXA_annual_2025_es.pdf
+  • CAIXA_annual_2025_es.pdf
+  • CAIXA_annual_2025_es.pdf
+
+[6] ¿Cual es el beneficio neto de Ibercaja en 2025?
+    Tipo esperado: lista
+----------------------------------------
+Respuesta:
+ No encuentro esta información en los documentos proporcionados.
+
+Fuentes:
+  • CAIXA_annual_2025_es.pdf
+  • CAIXA_annual_2025_es.pdf
+  • BBVA_pillar3_2021_es.pdf
+  • SANTANDER_annual_2025_es.pdf
+  • CAIXA_annual_2025_es.pdf
+  • CAIXA_annual_2025_es.pdf
+
+[7] ¿Qué riesgos menciona BBVA en su informe anual?
+    Tipo esperado: lista
+----------------------------------------
+Respuesta:
+ BBVA menciona varios riesgos en su informe anual, incluyendo riesgos no financieros, riesgos reputacionales, riesgos sociales, y riesgos relacionados con el cumplimiento normativo y la reputación del Grupo. Estos riesgos son evaluados anualmente y se proponen acciones para mitigar o prevenir riesgos sociales con impacto reputacional (BBVA, 2022, p. 258). Además, se destaca el riesgo derivado de la utilización de asunciones inadecuadas, limitaciones en la calidad de los datos o errores en la codificación del modelo, especialmente en áreas como la medición del riesgo de crédito y el cálculo de provisiones por contingencias (BBVA, 2022, p. 258). También se menciona el riesgo relacionado con el cambio climático a través de procesos específicos de evaluación de riesgo (BBVA, 2022, p. 258).
+
+Fuentes:
+  • BBVA_pillar3_2022_es.pdf
+  • BBVA_pillar3_2022_es.pdf
+  • BBVA_pillar3_2022_es.pdf
+  • BBVA_annual_2025_es.pdf
+  • BBVA_pillar3_2023_es.pdf
+  • BBVA_annual_2025_es.pdf
+
+[8] ¿Cómo evolucionó la PD media en la cartera hipotecaria de BBVA entre 2021 y 2023?
+    Tipo esperado: comparacion_temporal
+----------------------------------------
+Respuesta:
+ La PD media en la cartera hipotecaria de BBVA evolucionó de la siguiente manera: en 2021 fue del 6,45 % y en 2022 fue del 6,03 %. No encuentro esta información en los documentos proporcionados para el año 2023. (BBVA, 2022, p. 67).
+
+Fuentes:
+  • BBVA_pillar3_2023_es.pdf
+  • BBVA_pillar3_2025_es.pdf
+  • BBVA_annual_2025_es.pdf
+  • SANTANDER_annual_2025_es.pdf
+  • SANTANDER_pillar3_2022_es.pdf
+  • BBVA_pillar3_2022_es.pdf
+
+============================================================
+EVALUACIÓN COLECCIÓN REGULATORIA
+============================================================
+
+[1] ¿Cuáles son los requisitos para usar el método IRB avanzado?
+    Tipo esperado: lista
+----------------------------------------
+Respuesta:
+ Los requisitos para usar el método IRB avanzado (A-IRB) incluyen que los bancos proporcionen más de sus propias estimaciones de PD, LGD y EAD, y su propio cálculo de M, sujeto a cumplir con los estándares mínimos. Además, los bancos deben utilizar siempre las funciones de riesgo proporcionadas en este marco para el propósito de derivar los requisitos de capital. (Basilea III, Artículo 154).
+
+Fuentes:
+  • BasileaIII_2017_1_en.pdf
+  • CRR_2013_No 575_en.pdf
+  • BasileaIII_2017_1_en.pdf
+  • CRR_2013_No 575_en.pdf
+  • BasileaIII_2017_1_en.pdf
+  • BasileaIII_2017_1_en.pdf
+  • BasileaIII_2017_1_en.pdf
+  • BasileaIII_2017_1_en.pdf
+  • CRR_2013_No 575_en.pdf
+  • CRR_2013_No 575_en.pdf
+
+[2] Dime la nueva definición de default
+    Tipo esperado: definicion
+----------------------------------------
+Respuesta:
+ 
+La nueva definición de default se establece en el Artículo 178 de la CRR, donde se considera que un default ha ocurrido cuando, respecto a un obligor particular, se ha dado uno o ambos de los siguientes eventos: (a) la institución considera que el obligor es poco probable que pague sus obligaciones crediticias a la institución, la empresa matriz o cualquiera de sus subsidiarias en su totalidad, sin recurso por parte de la institución a acciones como la realización de garantías; (b) el obligor está en mora más de 90 días en cualquier obligación crediticia material con la institución, la empresa matriz o cualquiera de sus subsidiarias. (CRR, Artículo 178).
+
+Fuentes:
+  • CRR_2013_No 575_en.pdf
+  • BasileaIII_2017_1_en.pdf
+  • CRR_2013_No 575_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • BasileaIII_2017_1_en.pdf
+  • BasileaIII_2017_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+
+[3] ¿Cómo define el CRR la exposición en caso de incumplimiento?
+    Tipo esperado: definicion
+----------------------------------------
+Respuesta:
+ No encuentro esta disposición en la normativa proporcionada.
+
+Fuentes:
+  • IFRS9_2021_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+
+[4] ¿Qué establece IFRS 9 sobre el deterioro de activos financieros?
+    Tipo esperado: descripcion
+----------------------------------------
+Respuesta:
+ IFRS 9 establece que la entidad calculará la corrección de valor por pérdidas de un instrumento financiero en un importe igual a las pérdidas crediticias esperadas durante toda la vida del activo, si el riesgo de crédito de ese instrumento financiero ha aumentado de forma significativa desde su reconocimiento inicial (artículo 5.5.3, página 14). Además, el objetivo de los requisitos sobre deterioro del valor es reconocer las pérdidas crediticias esperadas durante toda la vida del activo en relación con todos los instrumentos financieros en los que haya habido un aumento significativo del riesgo de crédito desde el reconocimiento inicial (artículo 5.5.4, página 15). También se define el "activo financiero con deterioro crediticio" como aquel en relación con el cual se han producido uno o más eventos con un impacto negativo sobre sus flujos de efectivo futuros estimados (artículo 38, página 45). 
+
+Normativa fuente: NIIF 9.
+
+Fuentes:
+  • IFRS9_2021_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+
+[5] ¿Cuáles son los criterios de elegibilidad para garantías en el CRR?
+    Tipo esperado: lista
+----------------------------------------
+Respuesta:
+ Los criterios de elegibilidad para garantías en el CRR deben ser plausibles e intuitivos, y deben abordar la capacidad y disposición del garante para cumplir con la garantía, el momento probable de cualquier pago y el grado en que la capacidad del garante para cumplir con la garantía está correlacionada con la capacidad del prestatario para reembolsar. Además, deben considerar la extensión del riesgo residual. (CRR, Artículo 257).
+
+Fuentes:
+  • BasileaIII_2017_1_en.pdf
+  • CRR_2013_No 575_en.pdf
+  • CRR_2013_No 575_en.pdf
+  • BasileaIII_2017_1_en.pdf
+  • CRR_2013_No 575_en.pdf
+  • CRR_2013_No 575_en.pdf
+  • CRR_2013_No 575_en.pdf
+  • EBAGL_2020_13_en.pdf
+  • CRR_2013_No 575_en.pdf
+  • IFRS9_2021_1_en.pdf
+
+[6] ¿Que tecnicas se pueden utilizar para un modelo de scoring, y porque?
+    Tipo esperado: lista
+----------------------------------------
+Respuesta:
+ No encuentro esta disposición en la normativa proporcionada.
+
+Fuentes:
+  • BasileaIII_2017_1_en.pdf
+  • BasileaIII_2017_1_en.pdf
+  • BasileaIII_2017_1_en.pdf
+  • BasileaIII_2017_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • CRR_2013_No 575_en.pdf
+  • CRR_2013_No 575_en.pdf
+  • EBAGL_2020_14_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • CRR_2013_No 575_en.pdf
+
+[7] ¿Que tecnicas NO se pueden utilizar para un modelo de scoring, y porque?
+    Tipo esperado: lista
+----------------------------------------
+Respuesta:
+ No encuentro esta disposición en la normativa proporcionada.
+
+Fuentes:
+  • BasileaIII_2017_1_en.pdf
+  • BasileaIII_2017_1_en.pdf
+  • CRR_2013_No 575_en.pdf
+  • BasileaIII_2017_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • BasileaIII_2017_1_en.pdf
+  • IFRS9_2021_1_en.pdf
+  • CRR_2013_No 575_en.pdf
+  • CRR_2013_No 575_en.pdf
+  • IFRS9_2021_1_en.pdf

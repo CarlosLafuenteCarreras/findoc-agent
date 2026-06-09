@@ -1,0 +1,21 @@
+{
+  "financial": [
+    {"question": "¿Cuál fue el beneficio neto de BBVA en 2025?", "expected": "cifra_concreta"},
+    {"question": "¿Cuál es la tasa de mora de Santander?", "expected": "cifra_concreta"},
+    {"question": "¿Cuál fue la ratio CET1 de BBVA?", "expected": "cifra_concreta"},
+    {"question": "¿Cuáles son los principales mercados de Inditex?", "expected": "lista"},
+    {"question": "¿Cual es el presidente de españa?", "expected": "nombre"},
+    {"question": "¿Cual es el beneficio neto de Ibercaja en 2025?", "expected": "lista"},
+    {"question": "¿Qué riesgos menciona BBVA en su informe anual?", "expected": "lista"},
+    {"question": "¿Cómo evolucionó la PD media en la cartera hipotecaria de BBVA entre 2021 y 2023?", "expected": "comparacion_temporal"}
+  ],
+  "regulatory": [
+    {"question": "¿Cuáles son los requisitos para usar el método IRB avanzado?", "expected": "lista"},
+    {"question": "Dime la nueva definición de default", "expected": "definicion"},
+    {"question": "¿Cómo define el CRR la exposición en caso de incumplimiento?", "expected": "definicion"},
+    {"question": "¿Qué establece IFRS 9 sobre el deterioro de activos financieros?", "expected": "descripcion"},
+    {"question": "¿Cuáles son los criterios de elegibilidad para garantías en el CRR?", "expected": "lista"},
+    {"question": "¿Que tecnicas se pueden utilizar para un modelo de scoring, y porque?", "expected": "lista"},
+    {"question": "¿Que tecnicas NO se pueden utilizar para un modelo de scoring, y porque?", "expected": "lista"}  
+]
+}

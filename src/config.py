@@ -7,8 +7,8 @@ class FinDocConfig:
     CHUNK_OVERLAP: int = 100
 
     # Retrieval
-    TOP_K_FINANCIAL: int = 4
-    TOP_K_REGULATORY: int = 6    # más chunks para normativa — respuestas más completas
+    TOP_K_FINANCIAL: int = 6
+    TOP_K_REGULATORY: int = 10   # más chunks para normativa — respuestas más completas
 
     # LLM
     LLM_MODEL: str = "gpt-4o-mini"
