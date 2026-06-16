@@ -1,3 +1,7 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+
 
 import streamlit as st
 import tempfile
@@ -21,6 +25,8 @@ from src.agent.tools import initialize_tools
 from src.agent.graph import build_agent
 from src.config import config
 
+import langchain
+langchain.debug = True
 
 st.set_page_config(
     page_title="Findoc Agent",
@@ -143,8 +149,9 @@ else:
 
         with st.chat_message("assistant"):
             with st.spinner("Analizando..."):
-                result = st.session_state.agent.invoke({"input": prompt})
-                answer = result["output"]
+                
+                result = st.session_state.agent.invoke({"messages": [{"role": "user", "content": prompt}]})
+                answer = result["messages"][-1].content
                 st.markdown(answer)
 
         st.session_state.messages.append({"role": "assistant", "content": answer})

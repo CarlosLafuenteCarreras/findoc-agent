@@ -59,6 +59,7 @@ langchain-core==1.4.1
 langchain-openai==1.2.2
 langchain-protocol==0.0.16
 langchain-text-splitters==1.1.2
+langchainhub==0.1.21
 langgraph==1.2.4
 langgraph-checkpoint==4.1.1
 langgraph-prebuilt==1.1.0
@@ -88,7 +89,7 @@ opentelemetry-semantic-conventions==0.63b1
 orjson==3.11.9
 ormsgpack==1.12.2
 overrides==7.7.0
-packaging==26.2
+packaging==24.2
 pandas==3.0.3
 pathlib==1.0.1
 pdfminer.six==20251230
@@ -142,6 +143,7 @@ toml==0.10.2
 tqdm==4.68.1
 traits==7.1.0
 typer==0.25.1
+types-requests==2.33.0.20260518
 typing-inspection==0.4.2
 typing_extensions==4.15.0
 tzdata==2026.2

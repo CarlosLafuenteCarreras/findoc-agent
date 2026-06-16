@@ -5,6 +5,7 @@ from langchain_openai import ChatOpenAI
 from src.config import config
 from typing import Optional
 import os
+import sys
 
 # Vectorstores inicializados, _ porque son de uso interno
 # Optional indica que puede ser None hasta que se inicialicen con la función initialize_tools
@@ -19,7 +20,7 @@ def initialize_tools(financial_vs: Chroma, regulatory_vs: Chroma):
     _regulatory_vs = regulatory_vs
     
 def _get_llm() -> ChatOpenAI:
-    return ChatOpenAI(model=config.LLM_MODEL,openai_api_key=config.OPENAI_API_KEY, temperature=config.TEMPERATURE)
+    return ChatOpenAI(model=config.LLM_MODEL,openai_api_key=os.getenv("OPENAI_API_KEY"), temperature=config.TEMPERATURE)
 
 
 @tool
@@ -72,38 +73,58 @@ def search_regulation(query:str, regulation: str = None) -> str:
         
     return "\n\n".join(formatted)
 
+
+def build_filter(company=None, year=None):
+    conditions = []
+    if company:
+        conditions.append({"company": {"$eq": company.upper()}})
+    if year:
+        conditions.append({"year": {"$eq": year}})
+    
+    if len(conditions) == 0:
+        return None
+    elif len(conditions) == 1:
+        return conditions[0]
+    else:
+        return {"$and": conditions}
+    
+
 @tool
-def extract_financial_metric(metric_name: str, entity: str = None, year: str =None) -> str:
+def extract_financial_metric(metric_name: str, company: str = None, year: str =None) -> str:
     """
     Extrae el valor exacto de una métrica financiera de los documentos indexados.
     Úsala cuando el usuario pida cifras concretas: beneficio neto, EBITDA, ingresos, ratio CET1, tasa de mora, PD media, LGD, número de empleados, dividendo por acción.
     Input: nombre de la métrica, y opcionalmente entidad y año para filtrar.
     Output: valor exacto con fuente y página.
     """
+
     query = f"Extrae el valor de {metric_name} con la cifra exacta. Si hay varias menciones, prioriza la más reciente y la que tenga cifra concreta. Devuelve solo la cifra, sin texto adicional."
     
-    filter_dict={}
-    if entity:
-        filter_dict["entity"] = entity
-    if year:
-        filter_dict["year"] = year
     
-    results = _financial_vs.similarity_search(query, k=config.TOP_K_REGULATORY, filter=filter_dict if filter_dict else None)
+    filter_dict = build_filter(company=company, year=year)
+    
+    results = _financial_vs.similarity_search(query, k=config.TOP_K_FINANCIAL, filter=filter_dict if filter_dict else None)
     
     context = "\n".join([doc.page_content for doc in results])
     
-    extraction_prompt = f"""Del siguiente texto financiero extrae el valor exacto de '{metric_name}'.
-    {'Entidad: ' + entity if entity else ''}
+    extraction_prompt = f"""Del siguiente texto financiero extrae el valor de '{metric_name}' o cualquier métrica equivalente.
+    {'Entidad: ' + company if company else ''}
     {'Año: ' + year if year else ''}
 
-    Responde SOLO con: [métrica]: [valor] ([año]) — Fuente: [nombre archivo] Pág. [número]
-    Si no aparece la métrica: "Métrica '{metric_name}' no encontrada en los documentos."
+    IMPORTANTE: En documentos financieros bancarios '{metric_name}' puede aparecer como:
+    - Beneficio neto → Beneficio atribuido, Resultado del ejercicio, Resultado neto
+    - EBITDA → Resultado de explotación, Margen de explotación  
+    - Ingresos → Margen de intereses, Ingresos totales, Margen bruto
+
+    Devuelve el valor encontrado con su nombre exacto en el documento.
+    Formato: [nombre en documento]: [valor] ([año]) — Pág. [número si lo sabes]
+    Si no aparece ninguna métrica equivalente: "Métrica '{metric_name}' no encontrada."
 
     Texto:
     {context}"""
 
     respuesta = _get_llm().invoke(extraction_prompt)
-    return respuesta
+    return respuesta.content
 
 
 @tool
@@ -114,6 +135,7 @@ def compare_entities(metric_name: str, entity1: str, entity2: str, year: str) ->
     Input: nombre de la métrica, dos entidades a comparar, y año.
     Output: comparación clara indicando qué entidad tiene mejor resultado y las cifras exactas.
     """
+    
     query = f"Compara el valor de {metric_name} entre {entity1} y {entity2} para el año {year}. Devuelve solo la comparación con cifras exactas y sin texto adicional."
     
     filter1 = {"entity": entity1}
@@ -141,10 +163,26 @@ def compare_entities(metric_name: str, entity1: str, entity2: str, year: str) ->
     """
 
     respuesta = _get_llm().invoke(comparation_prompt)
-    return respuesta
+    return respuesta.content
 
+
+
+def build_filter_2(company=None, type=None):
+    conditions = []
+    if company:
+        conditions.append({"company": {"$eq": company.upper()}})
+    if type:
+        conditions.append({"type": {"$eq": type.upper()}})
+    
+    if len(conditions) == 0:
+        return None
+    elif len(conditions) == 1:
+        return conditions[0]
+    else:
+        return {"$and": conditions}
+    
 @tool
-def detect_risk_signals(entity: str = None, doc_type: str = None) -> str:
+def detect_risk_signals(company: str = None, type: str = None) -> str:
     """
     Detecta y lista señales de riesgo mencionadas en los informes financieros.
     Úsala cuando el usuario pregunte por riesgos, advertencias, litigios, deterioros,
@@ -154,11 +192,7 @@ def detect_risk_signals(entity: str = None, doc_type: str = None) -> str:
     """
     query = "riesgo advertencia litigio deterioro pérdida incumplimiento alerta"
 
-    filter_dict = {}
-    if entity:
-        filter_dict["entity"] = entity
-    if doc_type:
-        filter_dict["doc_type"] = doc_type
+    filter_dict = build_filter_2(company=company, type=type)
 
     results = _financial_vs.similarity_search( query, k=config.TOP_K_FINANCIAL, filter=filter_dict if filter_dict else None)
 
