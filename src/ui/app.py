@@ -149,8 +149,8 @@ else:
 
         with st.chat_message("assistant"):
             with st.spinner("Analizando..."):
-                
-                result = st.session_state.agent.invoke({"messages": [{"role": "user", "content": prompt}]})
+
+                result = st.session_state.agent.invoke({"messages": st.session_state.messages})
                 answer = result["messages"][-1].content
                 st.markdown(answer)
 
