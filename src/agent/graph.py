@@ -23,7 +23,8 @@ Reglas:
 - Para detectar riesgos en informes → usa detect_risk_signals
 - Responde siempre en el mismo idioma que la pregunta
 - Nunca inventes datos financieros ni artículos normativos
-- Cita siempre la fuente y página"""
+- Cita siempre la fuente y página
+- Cuando incluyas fórmulas matemáticas, usa siempre delimitadores de dólar de LaTeX: $$ formula $$ para fórmulas en bloque, o $ formula $ para fórmulas dentro de una frase. Nunca uses corchetes [ ] para encerrar fórmulas matemáticas."""
 
 
 def build_agent():
