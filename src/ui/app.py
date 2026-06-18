@@ -138,10 +138,20 @@ with st.sidebar:
 if not st.session_state.agent:
     st.info("Usa el botón 'Indexar carpetas' en el panel lateral para inicializar el sistema.")
 else:
+    if not st.session_state.messages:
+    
+        st.markdown(""" 
+        **¿Qué puedes preguntarme?**
+                    
+        📊 **Datos financieros** — "¿Cuál fue el beneficio neto de BBVA en 2025?"  
+        ⚖️ **Normativa regulatoria** — "¿Qué exige el CRR para usar el método IRB avanzado?"  
+        🔍 **Comparativas** — "Compara el CET1 de BBVA y Santander en 2025"  
+        ⚠️ **Riesgos** — "¿Qué riesgos menciona BBVA en su informe anual?"  
+        🧮 **Diseño de modelos** — "Ayúdame a diseñar un modelo de PD para cartera hipotecaria"
+        """)
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
-
     if prompt := st.chat_input("Pregunta sobre informes financieros o normativa regulatoria..."):
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):

@@ -222,4 +222,4 @@ chroma_db/
 
 # pdfs
 data/financial/*.pdf
-data/regulatory/*.pdf
+data/regulatory/*.pdfdata/datasets/loan_data.csv

@@ -212,3 +212,45 @@ def detect_risk_signals(company: str = None, type: str = None) -> str:
 
     response = _get_llm().invoke(risk_prompt)
     return response.content
+
+@tool
+def generate_pd_model_spec(segment: str) -> str:
+    """
+    Genera una especificación técnica completa para construir un modelo de PD
+    que cumple los requisitos regulatorios del CRR, Basilea III y EBA Guidelines.
+    Úsala cuando el usuario quiera saber cómo diseñar, construir o validar un modelo
+    de Probabilidad de Default desde cero, de principio a fin.
+    Input: segmento de cartera (ej. 'hipotecario', 'corporate', 'pyme').
+    Output: especificación técnica estructurada en fases.
+    """
+    queries = [
+        f"periodo de observación histórica estimación PD {segment}",
+        f"definición de default requisitos {segment}",
+        f"variables y factores de riesgo permitidos modelo IRB {segment}",
+        "validación backtesting modelos internos PD",
+        "calibración y ajuste de modelos PD",
+    ]
+
+    context_chunks = []
+    for q in queries:
+        results = _regulatory_vs.similarity_search(q, k=10)
+        context_chunks.extend([f"[{d.metadata.get('regulation')}] {d.page_content[:500]}" for d in results])
+
+    context = "\n\n".join(context_chunks)
+
+    spec_prompt = f"""Eres un consultor senior de riesgo de crédito. Un analista quiere construir
+un modelo de PD para el segmento '{segment}'. Usando ÚNICAMENTE los requisitos regulatorios
+del siguiente contexto, genera una especificación técnica de proyecto con estas fases:
+
+1. Definición del problema y alcance (qué exige la normativa para este segmento)
+2. Datos requeridos (periodo histórico mínimo, variables permitidas, tratamiento de default)
+3. Metodología de modelado sugerida (técnicas compatibles con los requisitos)
+4. Validación y backtesting (qué métricas y procesos exige la normativa)
+5. Documentación y gobernanza (qué hay que justificar ante el supervisor)
+
+Cita siempre el artículo o guideline concreto que respalda cada punto.
+
+Contexto regulatorio:
+{context}"""
+
+    return _get_llm().invoke(spec_prompt).content
