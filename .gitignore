@@ -222,5 +222,6 @@ chroma_db/
 
 # pdfs
 data/financial/*.pdf
-data/regulatory/*.pdfdata/datasets/loan_data.csv
+data/regulatory/*.pdf
+data/datasets/loan_data.csv
 tests/eval_results.txt
