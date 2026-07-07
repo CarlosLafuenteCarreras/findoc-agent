@@ -161,6 +161,10 @@ else:
             with st.spinner("Analizando..."):
 
                 result = st.session_state.agent.invoke({"messages": st.session_state.messages})
+                for m in result["messages"]:
+                    tc = getattr(m, "tool_calls", None)
+                    content = getattr(m, "content", "")
+                    print(type(m).__name__, tc or (content[:80] if content else "None"))
                 answer = result["messages"][-1].content
                 st.markdown(answer)
 

@@ -7,6 +7,8 @@ from src.modelling.data_loader import load_loan_dataset, get_dataset_summary
 from src.modelling.preprocessing import prepare_features, split_train_test, scale_features
 from src.modelling.trainer import train_model, get_feature_importance, explain_model_choice, AVAILABLE_MODELS
 from src.modelling.validation import evaluate_model  # lo escribimos después
+from src.modelling.compliance import check_dataset_compliance
+from src.modelling.data_loader import TARGET_COLUMN
 
 # Estado compartido entre tools de modelado — mismo patrón que tools.py
 _dataset: Optional[pd.DataFrame] = None
@@ -142,3 +144,35 @@ def compare_pd_models_tool(model_types: str = "logistic,xgboost") -> str:
         results.append(f"- {t}: Gini={metrics['gini']:.3f}, KS={metrics['ks']:.3f}, AUC={metrics['auc']:.3f}")
 
     return "Comparación de modelos:\n" + "\n".join(results)
+
+
+
+@tool
+def check_data_compliance_tool() -> str:
+    """
+    Verifica de forma objetiva y determinista si el dataset preparado cumple un
+    conjunto de requisitos estructurales típicos para datos usados en modelos de
+    PD (tamaño muestral, definición de la variable objetivo, tasa de impago,
+    missing values, variables sensibles, trazabilidad temporal).
+
+    IMPORTANTE: esta tool NO cita artículos normativos ni hace una valoración
+    legal — solo comprueba hechos objetivos sobre los datos. Para justificar
+    estos resultados con base normativa, combínala con search_regulation.
+
+    Requiere haber llamado antes a prepare_dataset_tool.
+    """
+    global _dataset
+    if _dataset is None:
+        return "Error: no hay ningún dataset cargado. Llama primero a prepare_dataset_tool."
+
+    result = check_dataset_compliance(_dataset, TARGET_COLUMN)
+    lines = ["Resultado de verificación objetiva de los datos:\n"]
+    for c in result["checks"]:
+        lines.append(f"- [{c['status'].upper()}] {c['check']}: {c['detail']}")
+    r = result["resumen"]
+    lines.append(
+        f"\nResumen: {r['cumple']} cumplen, {r['no_cumple']} no cumplen, "
+        f"{r['alerta_o_no_verificable']} requieren alerta o no son verificables "
+        f"con este dataset (de {r['total']} checks)."
+    )
+    return "\n".join(lines)
