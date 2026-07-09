@@ -10,7 +10,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=False)
 
 from src.embeddings.embedder import (
     ingest_financial_folder, ingest_regulatory_folder,
