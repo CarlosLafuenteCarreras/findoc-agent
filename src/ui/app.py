@@ -12,6 +12,7 @@ from dotenv import load_dotenv
 
 load_dotenv(override=False)
 
+
 from src.embeddings.embedder import (
     ingest_financial_folder, ingest_regulatory_folder,
     load_financial_vectorstore, load_regulatory_vectorstore,
@@ -26,7 +27,7 @@ from src.agent.graph import build_agent
 from src.config import config
 
 import langchain
-langchain.debug = True
+langchain.debug = os.getenv("LANGCHAIN_DEBUG", "false").lower() == "true"
 
 st.set_page_config(
     page_title="Findoc Agent",
