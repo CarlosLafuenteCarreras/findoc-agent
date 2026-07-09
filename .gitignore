@@ -225,3 +225,4 @@ data/financial/*.pdf
 data/regulatory/*.pdf
 data/datasets/loan_data.csv
 tests/eval_results.txt
+findoc-agent/
